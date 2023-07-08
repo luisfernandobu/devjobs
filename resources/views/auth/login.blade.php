@@ -34,12 +34,12 @@
 
         <div class="flex items-center justify-between my-4">
             <x-link href="{{route('register')}}">Crear cuenta</x-link>
-            <x-link href="{{route('password.request')}}">Olvidaste tu password?</x-link>
+            <x-link href="{{route('password.request')}}">¿Olvidaste tu password?</x-link>
         </div>
-        <div class="text-right">
-            <x-primary-button class="w-full justify-center">
-                {{ __('Iniciar sesión') }}
-            </x-primary-button>
-        </div>
+
+        <x-primary-button class="w-full justify-center">
+            {{ __('Iniciar sesión') }}
+        </x-primary-button>
+
     </form>
 </x-guest-layout>
