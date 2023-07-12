@@ -9,7 +9,7 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Rol -->
         <div class="mt-4">
             <x-input-label for="rol" :value="__('¿Qué tipo de cuenta deseas en DevJobs?')" />
             <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="rol" id="rol" required>

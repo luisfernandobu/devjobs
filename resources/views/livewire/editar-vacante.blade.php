@@ -1,5 +1,5 @@
 <div class="md:w-1/2">
-    <form  wire:submit.prevent="crearVacante">
+    <form  wire:submit.prevent="editarVacante">
         <div class="mt-4">
             <x-input-label for="titulo" :value="__('Título de vacante')" />
             <x-text-input id="titulo" class="block mt-1 w-full" type="text" wire:model="titulo" :value="old('titulo')" placeholder="Título de vacante"/>
@@ -52,18 +52,24 @@
         </div>
 
         <div class="my-4">
-            <x-input-label for="imagen" :value="__('Imagen')" />
-            <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*"/>
+            <x-input-label for="imagen_nueva" :value="__('Imagen')" />
+            <x-text-input id="imagen_nueva" class="block mt-1 w-full" type="file" wire:model="imagen_nueva" accept="image/*"/>
+
             {{-- preview de imagen seleccionada --}}
-            @if ($imagen)
+            @if ($imagen_nueva)
                 <div class="my-5 w-80">
-                    Imagen:
-                    <img src="{{ $imagen->temporaryUrl() }}" alt="Imagen de vacante">
+                    Nueva imagen:
+                    <img src="{{ $imagen_nueva->temporaryUrl() }}" alt="Imagen de vacante">
+                </div>
+            @else
+                <div class="my-5 w-80">
+                    <x-input-label :value="__('Imagen actual')" />
+                    <img src="{{ asset('storage/vacantes') . '/' . $imagen }}" alt="Imagen vacante {{$titulo}}">
                 </div>
             @endif
-            <x-input-error :messages="$errors->get('imagen')" class="mt-2"/>
+            <x-input-error :messages="$errors->get('imagen_nueva')" class="mt-2"/>
         </div>
 
-        <x-primary-button>Crear vacante</x-primary-button>
+        <x-primary-button>Guardar Cambios</x-primary-button>
     </form> <!-- fin de form -->
 </div>
