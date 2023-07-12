@@ -24,6 +24,9 @@ class VacanteController extends Controller
 
     public function edit(Vacante $vacante)
     {
+        // implementacion de policy
+        $this->authorize('update', $vacante);
+
         return view('vacantes.edit', ['vacante' => $vacante]);
     }
 }
