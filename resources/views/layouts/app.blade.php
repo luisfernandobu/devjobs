@@ -38,5 +38,7 @@
 
         {{-- livewire --}}
         @livewireScripts
+        <!-- scripts propios -->
+        @stack('scripts')
     </body>
 </html>
