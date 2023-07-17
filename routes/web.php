@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [VacanteController::class, 'index'])->name('vacantes.index');
 Route::get('/vacantes/create', [VacanteController::class, 'create'])->name('vacantes.create');
 Route::get('/vacantes/{vacante}/edit', [VacanteController::class, 'edit'])->name('vacantes.edit');
+Route::get('/vacantes/{vacante}', [VacanteController::class, 'show'])->name('vacantes.show');
 
 
 require __DIR__.'/auth.php';
