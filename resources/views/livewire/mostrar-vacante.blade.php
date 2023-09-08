@@ -38,9 +38,11 @@
             </div>
         @endguest
         
-        <!-- manera de conectar policy de un modelo con una vista de blade -->
-        @cannot('create', App\Models\Vacante::class)
-            <livewire:postular-vacante :vacante="$vacante"/>
-        @endcannot
+        @auth
+            <!-- manera de conectar policy de un modelo con una vista de blade -->
+            @cannot('create', App\Models\Vacante::class)
+                <livewire:postular-vacante :vacante="$vacante"/>
+            @endcannot
+        @endauth
     </div>
 </div>
