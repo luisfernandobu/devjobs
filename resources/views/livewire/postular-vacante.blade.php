@@ -6,7 +6,7 @@
             {{ session('mensaje') }}
         </p>
     @else
-        <form wire:submit.prevent="postularme" class="w-96 mt-5">
+        <form wire:submit.prevent="postularme" class="w-100 mt-5">
             <div class="mb-5">
                 <x-input-label for="cv" :value="__('Currículum u Hoja de Vida (PDF)')" />
                 <x-text-input id="cv" type="file" wire:model="cv" accept=".pdf" class="mt-1 block w-full"/>
