@@ -31,6 +31,10 @@
                     <p class="p-3 text-center text-sm text-gray-600">No hay vacantes aún</p>
                 @endforelse
             </div>
+            
+            <div class="m-2">
+                {{ $vacantes->links() }}
+            </div>
         </div>
     </div>
 </div>

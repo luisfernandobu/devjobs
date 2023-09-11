@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Vacante;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class HomeVacantes extends Component
 {
+    use WithPagination;
+    
     public $termino;
     public $categoria;
     public $salario;
@@ -17,6 +20,8 @@ class HomeVacantes extends Component
 
     public function buscar($termino, $categoria, $salario)
     {
+        $this->resetPage();
+
         $this->termino = $termino;
         $this->categoria = $categoria;
         $this->salario = $salario;
@@ -36,7 +41,7 @@ class HomeVacantes extends Component
         })
         ->when($this->salario, function($query) {
             $query->where('salario_id', $this->salario);
-        })->get();
+        })->paginate(5);
 
         return view('livewire.home-vacantes', [
             'vacantes' => $vacantes
